@@ -1,0 +1,616 @@
+Classic Timing Analyzer report for e1frwrapped
+Fri Aug 10 10:25:19 2018
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk2'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                ;
++------------------------------+-------+---------------+----------------------------------+--------------------------+----------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                     ; To                         ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+--------------------------+----------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 5.608 ns                         ; los                      ; e1rxfr:e1rxfri|nfaserr[1]  ; --         ; clk2     ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 8.893 ns                         ; e1rxfr:e1rxfri|aisflag   ; dataout[7]                 ; clk2       ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -0.518 ns                        ; datain[7]                ; e1txfr:e1txfri|seroutrg[7] ; --         ; clk2     ; 0            ;
+; Clock Setup: 'clk2'          ; N/A   ; None          ; 327.76 MHz ( period = 3.051 ns ) ; e1rxfr:e1rxfri|bitcnt[4] ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                          ;                            ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+--------------------------+----------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP2C35F672C6       ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk2            ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; clk19           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk2'                                                                                                                                                                                                                                                             ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------------+----------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                   ; To                         ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------------+----------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 327.76 MHz ( period = 3.051 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 2.837 ns                ;
+; N/A                                     ; 330.80 MHz ( period = 3.023 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 2.809 ns                ;
+; N/A                                     ; 331.67 MHz ( period = 3.015 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 2.801 ns                ;
+; N/A                                     ; 335.57 MHz ( period = 2.980 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|bitcnt[6]   ; clk2       ; clk2     ; None                        ; None                      ; 2.766 ns                ;
+; N/A                                     ; 338.75 MHz ( period = 2.952 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|bitcnt[6]   ; clk2       ; clk2     ; None                        ; None                      ; 2.738 ns                ;
+; N/A                                     ; 339.67 MHz ( period = 2.944 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|bitcnt[6]   ; clk2       ; clk2     ; None                        ; None                      ; 2.730 ns                ;
+; N/A                                     ; 340.60 MHz ( period = 2.936 ns )                    ; e1rxfr:e1rxfri|state.10                ; e1rxfr:e1rxfri|nfaserr[0]  ; clk2       ; clk2     ; None                        ; None                      ; 2.724 ns                ;
+; N/A                                     ; 340.60 MHz ( period = 2.936 ns )                    ; e1rxfr:e1rxfri|state.10                ; e1rxfr:e1rxfri|nfaserr[1]  ; clk2       ; clk2     ; None                        ; None                      ; 2.724 ns                ;
+; N/A                                     ; 342.47 MHz ( period = 2.920 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 2.706 ns                ;
+; N/A                                     ; 344.83 MHz ( period = 2.900 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 2.686 ns                ;
+; N/A                                     ; 345.54 MHz ( period = 2.894 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 2.680 ns                ;
+; N/A                                     ; 349.65 MHz ( period = 2.860 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.646 ns                ;
+; N/A                                     ; 349.77 MHz ( period = 2.859 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|nfaserr[0]  ; clk2       ; clk2     ; None                        ; None                      ; 2.646 ns                ;
+; N/A                                     ; 349.77 MHz ( period = 2.859 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|nfaserr[1]  ; clk2       ; clk2     ; None                        ; None                      ; 2.646 ns                ;
+; N/A                                     ; 351.00 MHz ( period = 2.849 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|bitcnt[6]   ; clk2       ; clk2     ; None                        ; None                      ; 2.635 ns                ;
+; N/A                                     ; 353.11 MHz ( period = 2.832 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.619 ns                ;
+; N/A                                     ; 353.11 MHz ( period = 2.832 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.618 ns                ;
+; N/A                                     ; 353.23 MHz ( period = 2.831 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|nfaserr[0]  ; clk2       ; clk2     ; None                        ; None                      ; 2.618 ns                ;
+; N/A                                     ; 353.23 MHz ( period = 2.831 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|nfaserr[1]  ; clk2       ; clk2     ; None                        ; None                      ; 2.618 ns                ;
+; N/A                                     ; 353.48 MHz ( period = 2.829 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|bitcnt[6]   ; clk2       ; clk2     ; None                        ; None                      ; 2.615 ns                ;
+; N/A                                     ; 354.23 MHz ( period = 2.823 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|bitcnt[6]   ; clk2       ; clk2     ; None                        ; None                      ; 2.609 ns                ;
+; N/A                                     ; 354.23 MHz ( period = 2.823 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|nfaserr[0]  ; clk2       ; clk2     ; None                        ; None                      ; 2.610 ns                ;
+; N/A                                     ; 354.23 MHz ( period = 2.823 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|nfaserr[1]  ; clk2       ; clk2     ; None                        ; None                      ; 2.610 ns                ;
+; N/A                                     ; 354.36 MHz ( period = 2.822 ns )                    ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|nfaserr[0]  ; clk2       ; clk2     ; None                        ; None                      ; 2.609 ns                ;
+; N/A                                     ; 354.36 MHz ( period = 2.822 ns )                    ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|nfaserr[1]  ; clk2       ; clk2     ; None                        ; None                      ; 2.609 ns                ;
+; N/A                                     ; 354.48 MHz ( period = 2.821 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|bitcnt[5]   ; clk2       ; clk2     ; None                        ; None                      ; 2.607 ns                ;
+; N/A                                     ; 358.04 MHz ( period = 2.793 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|bitcnt[5]   ; clk2       ; clk2     ; None                        ; None                      ; 2.579 ns                ;
+; N/A                                     ; 359.07 MHz ( period = 2.785 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|bitcnt[5]   ; clk2       ; clk2     ; None                        ; None                      ; 2.571 ns                ;
+; N/A                                     ; 363.64 MHz ( period = 2.750 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|bitcnt[4]   ; clk2       ; clk2     ; None                        ; None                      ; 2.536 ns                ;
+; N/A                                     ; 366.43 MHz ( period = 2.729 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.515 ns                ;
+; N/A                                     ; 366.57 MHz ( period = 2.728 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|nfaserr[0]  ; clk2       ; clk2     ; None                        ; None                      ; 2.515 ns                ;
+; N/A                                     ; 366.57 MHz ( period = 2.728 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|nfaserr[1]  ; clk2       ; clk2     ; None                        ; None                      ; 2.515 ns                ;
+; N/A                                     ; 366.97 MHz ( period = 2.725 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[4] ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.510 ns                ;
+; N/A                                     ; 367.38 MHz ( period = 2.722 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|bitcnt[4]   ; clk2       ; clk2     ; None                        ; None                      ; 2.508 ns                ;
+; N/A                                     ; 368.46 MHz ( period = 2.714 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|bitcnt[4]   ; clk2       ; clk2     ; None                        ; None                      ; 2.500 ns                ;
+; N/A                                     ; 369.14 MHz ( period = 2.709 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.495 ns                ;
+; N/A                                     ; 369.28 MHz ( period = 2.708 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|nfaserr[0]  ; clk2       ; clk2     ; None                        ; None                      ; 2.495 ns                ;
+; N/A                                     ; 369.28 MHz ( period = 2.708 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|nfaserr[1]  ; clk2       ; clk2     ; None                        ; None                      ; 2.495 ns                ;
+; N/A                                     ; 369.96 MHz ( period = 2.703 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[3] ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.487 ns                ;
+; N/A                                     ; 370.10 MHz ( period = 2.702 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|nfaserr[0]  ; clk2       ; clk2     ; None                        ; None                      ; 2.489 ns                ;
+; N/A                                     ; 370.10 MHz ( period = 2.702 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|nfaserr[1]  ; clk2       ; clk2     ; None                        ; None                      ; 2.489 ns                ;
+; N/A                                     ; 371.20 MHz ( period = 2.694 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[1] ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.481 ns                ;
+; N/A                                     ; 371.75 MHz ( period = 2.690 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|bitcnt[5]   ; clk2       ; clk2     ; None                        ; None                      ; 2.476 ns                ;
+; N/A                                     ; 372.02 MHz ( period = 2.688 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[7] ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.473 ns                ;
+; N/A                                     ; 373.27 MHz ( period = 2.679 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|bitcnt[3]   ; clk2       ; clk2     ; None                        ; None                      ; 2.465 ns                ;
+; N/A                                     ; 374.39 MHz ( period = 2.671 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.457 ns                ;
+; N/A                                     ; 374.53 MHz ( period = 2.670 ns )                    ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.456 ns                ;
+; N/A                                     ; 374.53 MHz ( period = 2.670 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|bitcnt[5]   ; clk2       ; clk2     ; None                        ; None                      ; 2.456 ns                ;
+; N/A                                     ; 375.38 MHz ( period = 2.664 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|bitcnt[5]   ; clk2       ; clk2     ; None                        ; None                      ; 2.450 ns                ;
+; N/A                                     ; 375.52 MHz ( period = 2.663 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.449 ns                ;
+; N/A                                     ; 376.65 MHz ( period = 2.655 ns )                    ; e1rxfr:e1rxfri|aiscnt[7]               ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.441 ns                ;
+; N/A                                     ; 376.79 MHz ( period = 2.654 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.439 ns                ;
+; N/A                                     ; 377.22 MHz ( period = 2.651 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|bitcnt[3]   ; clk2       ; clk2     ; None                        ; None                      ; 2.437 ns                ;
+; N/A                                     ; 378.21 MHz ( period = 2.644 ns )                    ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 2.430 ns                ;
+; N/A                                     ; 378.36 MHz ( period = 2.643 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|bitcnt[3]   ; clk2       ; clk2     ; None                        ; None                      ; 2.429 ns                ;
+; N/A                                     ; 378.64 MHz ( period = 2.641 ns )                    ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.427 ns                ;
+; N/A                                     ; 380.81 MHz ( period = 2.626 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.411 ns                ;
+; N/A                                     ; 381.68 MHz ( period = 2.620 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.405 ns                ;
+; N/A                                     ; 381.83 MHz ( period = 2.619 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|bitcnt[4]   ; clk2       ; clk2     ; None                        ; None                      ; 2.405 ns                ;
+; N/A                                     ; 381.97 MHz ( period = 2.618 ns )                    ; e1rxfr:e1rxfri|aiscnt[6]               ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.404 ns                ;
+; N/A                                     ; 383.44 MHz ( period = 2.608 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|bitcnt[2]   ; clk2       ; clk2     ; None                        ; None                      ; 2.394 ns                ;
+; N/A                                     ; 384.47 MHz ( period = 2.601 ns )                    ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 2.387 ns                ;
+; N/A                                     ; 384.76 MHz ( period = 2.599 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|bitcnt[4]   ; clk2       ; clk2     ; None                        ; None                      ; 2.385 ns                ;
+; N/A                                     ; 385.65 MHz ( period = 2.593 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|bitcnt[4]   ; clk2       ; clk2     ; None                        ; None                      ; 2.379 ns                ;
+; N/A                                     ; 385.80 MHz ( period = 2.592 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.377 ns                ;
+; N/A                                     ; 386.40 MHz ( period = 2.588 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[5] ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.373 ns                ;
+; N/A                                     ; 387.45 MHz ( period = 2.581 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[2] ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.365 ns                ;
+; N/A                                     ; 387.60 MHz ( period = 2.580 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|bitcnt[2]   ; clk2       ; clk2     ; None                        ; None                      ; 2.366 ns                ;
+; N/A                                     ; 388.65 MHz ( period = 2.573 ns )                    ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|bitcnt[6]   ; clk2       ; clk2     ; None                        ; None                      ; 2.359 ns                ;
+; N/A                                     ; 388.80 MHz ( period = 2.572 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|bitcnt[2]   ; clk2       ; clk2     ; None                        ; None                      ; 2.358 ns                ;
+; N/A                                     ; 388.95 MHz ( period = 2.571 ns )                    ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.356 ns                ;
+; N/A                                     ; 389.11 MHz ( period = 2.570 ns )                    ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.355 ns                ;
+; N/A                                     ; 390.63 MHz ( period = 2.560 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[4] ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.344 ns                ;
+; N/A                                     ; 391.08 MHz ( period = 2.557 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.342 ns                ;
+; N/A                                     ; 392.46 MHz ( period = 2.548 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|bitcnt[3]   ; clk2       ; clk2     ; None                        ; None                      ; 2.334 ns                ;
+; N/A                                     ; 392.93 MHz ( period = 2.545 ns )                    ; e1rxfr:e1rxfri|aiscnt[1]               ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.331 ns                ;
+; N/A                                     ; 393.39 MHz ( period = 2.542 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.328 ns                ;
+; N/A                                     ; 393.55 MHz ( period = 2.541 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.328 ns                ;
+; N/A                                     ; 394.17 MHz ( period = 2.537 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|bitcnt[1]   ; clk2       ; clk2     ; None                        ; None                      ; 2.323 ns                ;
+; N/A                                     ; 394.79 MHz ( period = 2.533 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[1] ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.319 ns                ;
+; N/A                                     ; 394.79 MHz ( period = 2.533 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[3] ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.317 ns                ;
+; N/A                                     ; 395.26 MHz ( period = 2.530 ns )                    ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.316 ns                ;
+; N/A                                     ; 395.26 MHz ( period = 2.530 ns )                    ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|bitcnt[6]   ; clk2       ; clk2     ; None                        ; None                      ; 2.316 ns                ;
+; N/A                                     ; 395.57 MHz ( period = 2.528 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|bitcnt[3]   ; clk2       ; clk2     ; None                        ; None                      ; 2.314 ns                ;
+; N/A                                     ; 396.35 MHz ( period = 2.523 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.308 ns                ;
+; N/A                                     ; 396.35 MHz ( period = 2.523 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[7] ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.307 ns                ;
+; N/A                                     ; 396.51 MHz ( period = 2.522 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|bitcnt[3]   ; clk2       ; clk2     ; None                        ; None                      ; 2.308 ns                ;
+; N/A                                     ; 397.30 MHz ( period = 2.517 ns )                    ; e1rxfr:e1rxfri|aiscnt[2]               ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.303 ns                ;
+; N/A                                     ; 398.57 MHz ( period = 2.509 ns )                    ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|bitcnt[1]   ; clk2       ; clk2     ; None                        ; None                      ; 2.295 ns                ;
+; N/A                                     ; 399.36 MHz ( period = 2.504 ns )                    ; e1rxfr:e1rxfri|nfaserr[1]              ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.288 ns                ;
+; N/A                                     ; 399.52 MHz ( period = 2.503 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.288 ns                ;
+; N/A                                     ; 399.84 MHz ( period = 2.501 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|bitcnt[1]   ; clk2       ; clk2     ; None                        ; None                      ; 2.287 ns                ;
+; N/A                                     ; 399.84 MHz ( period = 2.501 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.287 ns                ;
+; N/A                                     ; 401.77 MHz ( period = 2.489 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.274 ns                ;
+; N/A                                     ; 402.74 MHz ( period = 2.483 ns )                    ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.268 ns                ;
+; N/A                                     ; 403.06 MHz ( period = 2.481 ns )                    ; e1rxfr:e1rxfri|aiscnt[5]               ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.267 ns                ;
+; N/A                                     ; 403.71 MHz ( period = 2.477 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|bitcnt[2]   ; clk2       ; clk2     ; None                        ; None                      ; 2.263 ns                ;
+; N/A                                     ; 404.37 MHz ( period = 2.473 ns )                    ; e1rxfr:e1rxfri|state.01                ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.259 ns                ;
+; N/A                                     ; 405.02 MHz ( period = 2.469 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[6] ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.254 ns                ;
+; N/A                                     ; 405.02 MHz ( period = 2.469 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.254 ns                ;
+; N/A                                     ; 407.00 MHz ( period = 2.457 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|bitcnt[2]   ; clk2       ; clk2     ; None                        ; None                      ; 2.243 ns                ;
+; N/A                                     ; 407.83 MHz ( period = 2.452 ns )                    ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|nfaserr[0]  ; clk2       ; clk2     ; None                        ; None                      ; 2.239 ns                ;
+; N/A                                     ; 407.83 MHz ( period = 2.452 ns )                    ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|nfaserr[1]  ; clk2       ; clk2     ; None                        ; None                      ; 2.239 ns                ;
+; N/A                                     ; 408.00 MHz ( period = 2.451 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|bitcnt[2]   ; clk2       ; clk2     ; None                        ; None                      ; 2.237 ns                ;
+; N/A                                     ; 410.51 MHz ( period = 2.436 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.221 ns                ;
+; N/A                                     ; 410.85 MHz ( period = 2.434 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[4] ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.219 ns                ;
+; N/A                                     ; 411.02 MHz ( period = 2.433 ns )                    ; e1rxfr:e1rxfri|aiscnt[7]               ; e1rxfr:e1rxfri|zrbitnum[1] ; clk2       ; clk2     ; None                        ; None                      ; 2.218 ns                ;
+; N/A                                     ; 411.52 MHz ( period = 2.430 ns )                    ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.215 ns                ;
+; N/A                                     ; 412.71 MHz ( period = 2.423 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[5] ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.207 ns                ;
+; N/A                                     ; 412.71 MHz ( period = 2.423 ns )                    ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.208 ns                ;
+; N/A                                     ; 414.25 MHz ( period = 2.414 ns )                    ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|bitcnt[5]   ; clk2       ; clk2     ; None                        ; None                      ; 2.200 ns                ;
+; N/A                                     ; 414.77 MHz ( period = 2.411 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[2] ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.195 ns                ;
+; N/A                                     ; 415.11 MHz ( period = 2.409 ns )                    ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|nfaserr[0]  ; clk2       ; clk2     ; None                        ; None                      ; 2.196 ns                ;
+; N/A                                     ; 415.11 MHz ( period = 2.409 ns )                    ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|nfaserr[1]  ; clk2       ; clk2     ; None                        ; None                      ; 2.196 ns                ;
+; N/A                                     ; 415.63 MHz ( period = 2.406 ns )                    ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|bitcnt[1]   ; clk2       ; clk2     ; None                        ; None                      ; 2.192 ns                ;
+; N/A                                     ; 416.15 MHz ( period = 2.403 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[1] ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.190 ns                ;
+; N/A                                     ; 417.19 MHz ( period = 2.397 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[7] ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.182 ns                ;
+; N/A                                     ; 417.36 MHz ( period = 2.396 ns )                    ; e1rxfr:e1rxfri|aiscnt[6]               ; e1rxfr:e1rxfri|zrbitnum[1] ; clk2       ; clk2     ; None                        ; None                      ; 2.181 ns                ;
+; N/A                                     ; 418.41 MHz ( period = 2.390 ns )                    ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[4] ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.174 ns                ;
+; N/A                                     ; 419.11 MHz ( period = 2.386 ns )                    ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|bitcnt[1]   ; clk2       ; clk2     ; None                        ; None                      ; 2.172 ns                ;
+; N/A                                     ; 419.82 MHz ( period = 2.382 ns )                    ; e1rxfr:e1rxfri|aiscnt[3]               ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.168 ns                ;
+; N/A                                     ; 419.82 MHz ( period = 2.382 ns )                    ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.167 ns                ;
+; N/A                                     ; 420.17 MHz ( period = 2.380 ns )                    ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|bitcnt[1]   ; clk2       ; clk2     ; None                        ; None                      ; 2.166 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|bitcnt[5]   ; clk2       ; clk2     ; None                        ; None                      ; 2.157 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.154 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[1] ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.149 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.139 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[7] ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.137 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[4]               ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.130 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|bitcnt[4]   ; clk2       ; clk2     ; None                        ; None                      ; 2.129 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|nfaserr[0]              ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.127 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.127 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[1]               ; e1rxfr:e1rxfri|zrbitnum[1] ; clk2       ; clk2     ; None                        ; None                      ; 2.108 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[6] ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.088 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.087 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|bitcnt[4]   ; clk2       ; clk2     ; None                        ; None                      ; 2.086 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[2] ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 2.084 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[5] ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.082 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[2]               ; e1rxfr:e1rxfri|zrbitnum[1] ; clk2       ; clk2     ; None                        ; None                      ; 2.080 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.075 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|bitcnt[3]   ; clk2       ; clk2     ; None                        ; None                      ; 2.058 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.046 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[5]               ; e1rxfr:e1rxfri|zrbitnum[1] ; clk2       ; clk2     ; None                        ; None                      ; 2.044 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[5] ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 2.037 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.036 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[6] ; e1rxfr:e1rxfri|state.11    ; clk2       ; clk2     ; None                        ; None                      ; 2.030 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[0]               ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 2.023 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.016 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|bitcnt[3]   ; clk2       ; clk2     ; None                        ; None                      ; 2.015 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 2.006 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|bitcnt[2]   ; clk2       ; clk2     ; None                        ; None                      ; 1.987 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 1.984 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|nfaserr[1]              ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 1.972 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[3] ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 1.965 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[6] ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 1.963 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[7]               ; e1rxfr:e1rxfri|zrbitnum[0] ; clk2       ; clk2     ; None                        ; None                      ; 1.945 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[3]               ; e1rxfr:e1rxfri|zrbitnum[1] ; clk2       ; clk2     ; None                        ; None                      ; 1.945 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|bitcnt[0]   ; clk2       ; clk2     ; None                        ; None                      ; 1.946 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|bitcnt[3]   ; clk2       ; clk2     ; None                        ; None                      ; 1.946 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|bitcnt[2]   ; clk2       ; clk2     ; None                        ; None                      ; 1.946 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|bitcnt[1]   ; clk2       ; clk2     ; None                        ; None                      ; 1.946 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|bitcnt[4]   ; clk2       ; clk2     ; None                        ; None                      ; 1.946 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 1.946 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|bitcnt[6]   ; clk2       ; clk2     ; None                        ; None                      ; 1.946 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aisflag                 ; e1rxfr:e1rxfri|bitcnt[5]   ; clk2       ; clk2     ; None                        ; None                      ; 1.946 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|bitcnt[2]   ; clk2       ; clk2     ; None                        ; None                      ; 1.944 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|state.10                ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 1.927 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 1.925 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[6] ; e1rxfr:e1rxfri|state.10    ; clk2       ; clk2     ; None                        ; None                      ; 1.918 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[3]               ; e1rxfr:e1rxfri|bitcnt[1]   ; clk2       ; clk2     ; None                        ; None                      ; 1.916 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[4]               ; e1rxfr:e1rxfri|bitcnt[0]   ; clk2       ; clk2     ; None                        ; None                      ; 1.913 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[6]               ; e1rxfr:e1rxfri|zrbitnum[0] ; clk2       ; clk2     ; None                        ; None                      ; 1.908 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[4]               ; e1rxfr:e1rxfri|zrbitnum[1] ; clk2       ; clk2     ; None                        ; None                      ; 1.907 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[8]               ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 1.885 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[7]               ; e1rxfr:e1rxfri|bitcnt[0]   ; clk2       ; clk2     ; None                        ; None                      ; 1.885 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[0]               ; e1rxfr:e1rxfri|bitcnt[0]   ; clk2       ; clk2     ; None                        ; None                      ; 1.877 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[2]               ; e1rxfr:e1rxfri|bitcnt[1]   ; clk2       ; clk2     ; None                        ; None                      ; 1.873 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|nfaserr[0]              ; e1rxfr:e1rxfri|state.00    ; clk2       ; clk2     ; None                        ; None                      ; 1.867 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|zrbitnum[1]             ; e1rxfr:e1rxfri|zrbitnum[0] ; clk2       ; clk2     ; None                        ; None                      ; 1.848 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[1]               ; e1rxfr:e1rxfri|zrbitnum[0] ; clk2       ; clk2     ; None                        ; None                      ; 1.835 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[0]               ; e1rxfr:e1rxfri|aiscnt[8]   ; clk2       ; clk2     ; None                        ; None                      ; 1.825 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[2]               ; e1rxfr:e1rxfri|zrbitnum[0] ; clk2       ; clk2     ; None                        ; None                      ; 1.807 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[0]               ; e1rxfr:e1rxfri|zrbitnum[1] ; clk2       ; clk2     ; None                        ; None                      ; 1.800 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[2] ; e1rxfr:e1rxfri|aisflag     ; clk2       ; clk2     ; None                        ; None                      ; 1.793 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1txfr:e1txfri|count[3]                ; e1txfr:e1txfri|ready       ; clk2       ; clk2     ; None                        ; None                      ; 1.791 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[5]               ; e1rxfr:e1rxfri|bitcnt[0]   ; clk2       ; clk2     ; None                        ; None                      ; 1.782 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[5]               ; e1rxfr:e1rxfri|zrbitnum[0] ; clk2       ; clk2     ; None                        ; None                      ; 1.771 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; e1rxfr:e1rxfri|dovld1      ; clk2       ; clk2     ; None                        ; None                      ; 1.764 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[6]               ; e1rxfr:e1rxfri|bitcnt[0]   ; clk2       ; clk2     ; None                        ; None                      ; 1.762 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|bitcnt[1]               ; e1rxfr:e1rxfri|bitcnt[0]   ; clk2       ; clk2     ; None                        ; None                      ; 1.756 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[1]               ; e1rxfr:e1rxfri|aiscnt[8]   ; clk2       ; clk2     ; None                        ; None                      ; 1.754 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|aiscnt[0]               ; e1rxfr:e1rxfri|aiscnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 1.754 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; e1rxfr:e1rxfri|zrbitnum[0] ; clk2       ; clk2     ; None                        ; None                      ; 1.719 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1txfr:e1txfri|count[0]                ; e1txfr:e1txfri|ready       ; clk2       ; clk2     ; None                        ; None                      ; 1.713 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|state.00                ; e1rxfr:e1rxfri|state.01    ; clk2       ; clk2     ; None                        ; None                      ; 1.702 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|state.00                ; e1rxfr:e1rxfri|bitcnt[2]   ; clk2       ; clk2     ; None                        ; None                      ; 1.701 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|state.00                ; e1rxfr:e1rxfri|bitcnt[1]   ; clk2       ; clk2     ; None                        ; None                      ; 1.701 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|state.00                ; e1rxfr:e1rxfri|bitcnt[4]   ; clk2       ; clk2     ; None                        ; None                      ; 1.701 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|state.00                ; e1rxfr:e1rxfri|bitcnt[7]   ; clk2       ; clk2     ; None                        ; None                      ; 1.701 ns                ;
+; N/A                                     ; Restricted to 420.17 MHz ( period = 2.380 ns )      ; e1rxfr:e1rxfri|state.00                ; e1rxfr:e1rxfri|bitcnt[6]   ; clk2       ; clk2     ; None                        ; None                      ; 1.701 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                        ;                            ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------------+----------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; tsu                                                                                               ;
++-------+--------------+------------+-----------+----------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From      ; To                                     ; To Clock ;
++-------+--------------+------------+-----------+----------------------------------------+----------+
+; N/A   ; None         ; 5.608 ns   ; los       ; e1rxfr:e1rxfri|nfaserr[0]              ; clk2     ;
+; N/A   ; None         ; 5.608 ns   ; los       ; e1rxfr:e1rxfri|nfaserr[1]              ; clk2     ;
+; N/A   ; None         ; 5.471 ns   ; los       ; e1rxfr:e1rxfri|state.00                ; clk2     ;
+; N/A   ; None         ; 5.313 ns   ; los       ; e1rxfr:e1rxfri|state.11                ; clk2     ;
+; N/A   ; None         ; 5.199 ns   ; los       ; e1rxfr:e1rxfri|state.01                ; clk2     ;
+; N/A   ; None         ; 5.029 ns   ; los       ; e1rxfr:e1rxfri|state.10                ; clk2     ;
+; N/A   ; None         ; 4.990 ns   ; los       ; e1rxfr:e1rxfri|bitcnt[0]               ; clk2     ;
+; N/A   ; None         ; 4.990 ns   ; los       ; e1rxfr:e1rxfri|bitcnt[3]               ; clk2     ;
+; N/A   ; None         ; 4.990 ns   ; los       ; e1rxfr:e1rxfri|bitcnt[2]               ; clk2     ;
+; N/A   ; None         ; 4.990 ns   ; los       ; e1rxfr:e1rxfri|bitcnt[1]               ; clk2     ;
+; N/A   ; None         ; 4.990 ns   ; los       ; e1rxfr:e1rxfri|bitcnt[4]               ; clk2     ;
+; N/A   ; None         ; 4.990 ns   ; los       ; e1rxfr:e1rxfri|bitcnt[7]               ; clk2     ;
+; N/A   ; None         ; 4.990 ns   ; los       ; e1rxfr:e1rxfri|bitcnt[6]               ; clk2     ;
+; N/A   ; None         ; 4.990 ns   ; los       ; e1rxfr:e1rxfri|bitcnt[5]               ; clk2     ;
+; N/A   ; None         ; 4.437 ns   ; los       ; e1rxfr:e1rxfri|dovld1                  ; clk2     ;
+; N/A   ; None         ; 4.126 ns   ; datain[3] ; e1txfr:e1txfri|seroutrg[3]             ; clk2     ;
+; N/A   ; None         ; 4.051 ns   ; los       ; e1rxfr:e1rxfri|aisflag                 ; clk2     ;
+; N/A   ; None         ; 3.976 ns   ; datain[1] ; e1txfr:e1txfri|seroutrg[1]             ; clk2     ;
+; N/A   ; None         ; 3.928 ns   ; datain[4] ; e1txfr:e1txfri|seroutrg[4]             ; clk2     ;
+; N/A   ; None         ; 3.914 ns   ; datain[2] ; e1txfr:e1txfri|seroutrg[2]             ; clk2     ;
+; N/A   ; None         ; 3.852 ns   ; datain[5] ; e1txfr:e1txfri|seroutrg[5]             ; clk2     ;
+; N/A   ; None         ; 3.775 ns   ; datain[0] ; e1txfr:e1txfri|seroutrg[0]             ; clk2     ;
+; N/A   ; None         ; 3.764 ns   ; datain[6] ; e1txfr:e1txfri|seroutrg[6]             ; clk2     ;
+; N/A   ; None         ; 3.588 ns   ; serin     ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; clk2     ;
+; N/A   ; None         ; 3.498 ns   ; divld     ; e1txfr:e1txfri|fflopx:ffvldi|odat[0]   ; clk2     ;
+; N/A   ; None         ; 2.871 ns   ; rst       ; e1rxfr:e1rxfri|nfaserr[0]              ; clk2     ;
+; N/A   ; None         ; 2.871 ns   ; rst       ; e1rxfr:e1rxfri|nfaserr[1]              ; clk2     ;
+; N/A   ; None         ; 2.615 ns   ; rst       ; e1rxfr:e1rxfri|state.00                ; clk2     ;
+; N/A   ; None         ; 2.457 ns   ; rst       ; e1rxfr:e1rxfri|state.11                ; clk2     ;
+; N/A   ; None         ; 2.343 ns   ; rst       ; e1rxfr:e1rxfri|state.01                ; clk2     ;
+; N/A   ; None         ; 2.173 ns   ; rst       ; e1rxfr:e1rxfri|state.10                ; clk2     ;
+; N/A   ; None         ; 2.134 ns   ; rst       ; e1rxfr:e1rxfri|bitcnt[0]               ; clk2     ;
+; N/A   ; None         ; 2.134 ns   ; rst       ; e1rxfr:e1rxfri|bitcnt[3]               ; clk2     ;
+; N/A   ; None         ; 2.134 ns   ; rst       ; e1rxfr:e1rxfri|bitcnt[2]               ; clk2     ;
+; N/A   ; None         ; 2.134 ns   ; rst       ; e1rxfr:e1rxfri|bitcnt[1]               ; clk2     ;
+; N/A   ; None         ; 2.134 ns   ; rst       ; e1rxfr:e1rxfri|bitcnt[4]               ; clk2     ;
+; N/A   ; None         ; 2.134 ns   ; rst       ; e1rxfr:e1rxfri|bitcnt[7]               ; clk2     ;
+; N/A   ; None         ; 2.134 ns   ; rst       ; e1rxfr:e1rxfri|bitcnt[6]               ; clk2     ;
+; N/A   ; None         ; 2.134 ns   ; rst       ; e1rxfr:e1rxfri|bitcnt[5]               ; clk2     ;
+; N/A   ; None         ; 1.700 ns   ; rst       ; e1rxfr:e1rxfri|dovld1                  ; clk2     ;
+; N/A   ; None         ; 1.665 ns   ; rst       ; e1rxfr:e1rxfri|zrbitnum[0]             ; clk2     ;
+; N/A   ; None         ; 1.389 ns   ; rst       ; e1rxfr:e1rxfri|zrbitnum[1]             ; clk2     ;
+; N/A   ; None         ; 1.317 ns   ; rst       ; e1rxfr:e1rxfri|fflopx:ffvld1i|odat[0]  ; clk19    ;
+; N/A   ; None         ; 1.311 ns   ; rst       ; e1txfr:e1txfri|endi                    ; clk2     ;
+; N/A   ; None         ; 1.311 ns   ; rst       ; e1txfr:e1txfri|count[0]                ; clk2     ;
+; N/A   ; None         ; 1.311 ns   ; rst       ; e1txfr:e1txfri|count[1]                ; clk2     ;
+; N/A   ; None         ; 1.311 ns   ; rst       ; e1txfr:e1txfri|count[2]                ; clk2     ;
+; N/A   ; None         ; 1.311 ns   ; rst       ; e1txfr:e1txfri|count[7]                ; clk2     ;
+; N/A   ; None         ; 1.311 ns   ; rst       ; e1txfr:e1txfri|count[3]                ; clk2     ;
+; N/A   ; None         ; 1.311 ns   ; rst       ; e1txfr:e1txfri|count[6]                ; clk2     ;
+; N/A   ; None         ; 1.311 ns   ; rst       ; e1txfr:e1txfri|count[4]                ; clk2     ;
+; N/A   ; None         ; 1.311 ns   ; rst       ; e1txfr:e1txfri|count[5]                ; clk2     ;
+; N/A   ; None         ; 1.134 ns   ; rst       ; e1txfr:e1txfri|seroutrg[7]             ; clk2     ;
+; N/A   ; None         ; 1.134 ns   ; rst       ; e1txfr:e1txfri|seroutrg[6]             ; clk2     ;
+; N/A   ; None         ; 1.134 ns   ; rst       ; e1txfr:e1txfri|seroutrg[5]             ; clk2     ;
+; N/A   ; None         ; 1.134 ns   ; rst       ; e1txfr:e1txfri|seroutrg[4]             ; clk2     ;
+; N/A   ; None         ; 1.134 ns   ; rst       ; e1txfr:e1txfri|seroutrg[3]             ; clk2     ;
+; N/A   ; None         ; 1.134 ns   ; rst       ; e1txfr:e1txfri|seroutrg[2]             ; clk2     ;
+; N/A   ; None         ; 1.134 ns   ; rst       ; e1txfr:e1txfri|seroutrg[1]             ; clk2     ;
+; N/A   ; None         ; 1.134 ns   ; rst       ; e1txfr:e1txfri|seroutrg[0]             ; clk2     ;
+; N/A   ; None         ; 1.032 ns   ; rst       ; e1txfr:e1txfri|ready                   ; clk2     ;
+; N/A   ; None         ; 1.032 ns   ; rst       ; e1txfr:e1txfri|fflopx:ffvldi|odat[0]   ; clk2     ;
+; N/A   ; None         ; 1.031 ns   ; rst       ; e1txfr:e1txfri|fflopx:ffvld2i|odat[0]  ; clk2     ;
+; N/A   ; None         ; 1.030 ns   ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[1] ; clk2     ;
+; N/A   ; None         ; 1.029 ns   ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; clk2     ;
+; N/A   ; None         ; 0.923 ns   ; rst       ; e1rxfr:e1rxfri|aisflag                 ; clk2     ;
+; N/A   ; None         ; 0.923 ns   ; rst       ; e1rxfr:e1rxfri|aiscnt[8]               ; clk2     ;
+; N/A   ; None         ; 0.923 ns   ; rst       ; e1rxfr:e1rxfri|aiscnt[7]               ; clk2     ;
+; N/A   ; None         ; 0.923 ns   ; rst       ; e1rxfr:e1rxfri|aiscnt[6]               ; clk2     ;
+; N/A   ; None         ; 0.923 ns   ; rst       ; e1rxfr:e1rxfri|aiscnt[5]               ; clk2     ;
+; N/A   ; None         ; 0.923 ns   ; rst       ; e1rxfr:e1rxfri|aiscnt[4]               ; clk2     ;
+; N/A   ; None         ; 0.923 ns   ; rst       ; e1rxfr:e1rxfri|aiscnt[1]               ; clk2     ;
+; N/A   ; None         ; 0.923 ns   ; rst       ; e1rxfr:e1rxfri|aiscnt[2]               ; clk2     ;
+; N/A   ; None         ; 0.923 ns   ; rst       ; e1rxfr:e1rxfri|aiscnt[3]               ; clk2     ;
+; N/A   ; None         ; 0.923 ns   ; rst       ; e1rxfr:e1rxfri|aiscnt[0]               ; clk2     ;
+; N/A   ; None         ; 0.826 ns   ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[2] ; clk2     ;
+; N/A   ; None         ; 0.826 ns   ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[7] ; clk2     ;
+; N/A   ; None         ; 0.823 ns   ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[3] ; clk2     ;
+; N/A   ; None         ; 0.821 ns   ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[4] ; clk2     ;
+; N/A   ; None         ; 0.817 ns   ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[6] ; clk2     ;
+; N/A   ; None         ; 0.814 ns   ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[5] ; clk2     ;
+; N/A   ; None         ; 0.748 ns   ; datain[7] ; e1txfr:e1txfri|seroutrg[7]             ; clk2     ;
++-------+--------------+------------+-----------+----------------------------------------+----------+
+
+
++------------------------------------------------------------------------------------------------------+
+; tco                                                                                                  ;
++-------+--------------+------------+----------------------------------------+------------+------------+
+; Slack ; Required tco ; Actual tco ; From                                   ; To         ; From Clock ;
++-------+--------------+------------+----------------------------------------+------------+------------+
+; N/A   ; None         ; 8.893 ns   ; e1rxfr:e1rxfri|aisflag                 ; dataout[7] ; clk2       ;
+; N/A   ; None         ; 8.883 ns   ; e1rxfr:e1rxfri|aisflag                 ; dataout[5] ; clk2       ;
+; N/A   ; None         ; 8.873 ns   ; e1rxfr:e1rxfri|aisflag                 ; dataout[6] ; clk2       ;
+; N/A   ; None         ; 8.765 ns   ; e1txfr:e1txfri|endi                    ; endi       ; clk2       ;
+; N/A   ; None         ; 8.634 ns   ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[7] ; dataout[7] ; clk2       ;
+; N/A   ; None         ; 8.583 ns   ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[6] ; dataout[6] ; clk2       ;
+; N/A   ; None         ; 8.349 ns   ; e1rxfr:e1rxfri|aisflag                 ; dataout[3] ; clk2       ;
+; N/A   ; None         ; 8.349 ns   ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; dataout[0] ; clk2       ;
+; N/A   ; None         ; 8.331 ns   ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[1] ; dataout[1] ; clk2       ;
+; N/A   ; None         ; 8.322 ns   ; e1rxfr:e1rxfri|aisflag                 ; dataout[4] ; clk2       ;
+; N/A   ; None         ; 8.303 ns   ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[5] ; dataout[5] ; clk2       ;
+; N/A   ; None         ; 8.295 ns   ; e1rxfr:e1rxfri|aisflag                 ; dataout[0] ; clk2       ;
+; N/A   ; None         ; 8.294 ns   ; e1rxfr:e1rxfri|aisflag                 ; dataout[2] ; clk2       ;
+; N/A   ; None         ; 8.280 ns   ; e1rxfr:e1rxfri|aisflag                 ; dataout[1] ; clk2       ;
+; N/A   ; None         ; 8.083 ns   ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[3] ; dataout[3] ; clk2       ;
+; N/A   ; None         ; 8.040 ns   ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[2] ; dataout[2] ; clk2       ;
+; N/A   ; None         ; 7.934 ns   ; e1rxfr:e1rxfri|fflopx:ffvld1i|odat[0]  ; dovld      ; clk19      ;
+; N/A   ; None         ; 7.742 ns   ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[4] ; dataout[4] ; clk2       ;
+; N/A   ; None         ; 7.598 ns   ; e1rxfr:e1rxfri|aisflag                 ; ais        ; clk2       ;
+; N/A   ; None         ; 7.328 ns   ; e1txfr:e1txfri|seroutrg[7]             ; serout     ; clk2       ;
++-------+--------------+------------+----------------------------------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; th                                                                                                      ;
++---------------+-------------+-----------+-----------+----------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From      ; To                                     ; To Clock ;
++---------------+-------------+-----------+-----------+----------------------------------------+----------+
+; N/A           ; None        ; -0.518 ns ; datain[7] ; e1txfr:e1txfri|seroutrg[7]             ; clk2     ;
+; N/A           ; None        ; -0.584 ns ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[5] ; clk2     ;
+; N/A           ; None        ; -0.587 ns ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[6] ; clk2     ;
+; N/A           ; None        ; -0.591 ns ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[4] ; clk2     ;
+; N/A           ; None        ; -0.593 ns ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[3] ; clk2     ;
+; N/A           ; None        ; -0.596 ns ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[2] ; clk2     ;
+; N/A           ; None        ; -0.596 ns ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[7] ; clk2     ;
+; N/A           ; None        ; -0.693 ns ; rst       ; e1rxfr:e1rxfri|aisflag                 ; clk2     ;
+; N/A           ; None        ; -0.693 ns ; rst       ; e1rxfr:e1rxfri|aiscnt[8]               ; clk2     ;
+; N/A           ; None        ; -0.693 ns ; rst       ; e1rxfr:e1rxfri|aiscnt[7]               ; clk2     ;
+; N/A           ; None        ; -0.693 ns ; rst       ; e1rxfr:e1rxfri|aiscnt[6]               ; clk2     ;
+; N/A           ; None        ; -0.693 ns ; rst       ; e1rxfr:e1rxfri|aiscnt[5]               ; clk2     ;
+; N/A           ; None        ; -0.693 ns ; rst       ; e1rxfr:e1rxfri|aiscnt[4]               ; clk2     ;
+; N/A           ; None        ; -0.693 ns ; rst       ; e1rxfr:e1rxfri|aiscnt[1]               ; clk2     ;
+; N/A           ; None        ; -0.693 ns ; rst       ; e1rxfr:e1rxfri|aiscnt[2]               ; clk2     ;
+; N/A           ; None        ; -0.693 ns ; rst       ; e1rxfr:e1rxfri|aiscnt[3]               ; clk2     ;
+; N/A           ; None        ; -0.693 ns ; rst       ; e1rxfr:e1rxfri|aiscnt[0]               ; clk2     ;
+; N/A           ; None        ; -0.763 ns ; rst       ; e1rxfr:e1rxfri|zrbitnum[0]             ; clk2     ;
+; N/A           ; None        ; -0.764 ns ; rst       ; e1rxfr:e1rxfri|zrbitnum[1]             ; clk2     ;
+; N/A           ; None        ; -0.799 ns ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; clk2     ;
+; N/A           ; None        ; -0.800 ns ; rst       ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[1] ; clk2     ;
+; N/A           ; None        ; -0.801 ns ; rst       ; e1txfr:e1txfri|fflopx:ffvld2i|odat[0]  ; clk2     ;
+; N/A           ; None        ; -0.802 ns ; rst       ; e1txfr:e1txfri|ready                   ; clk2     ;
+; N/A           ; None        ; -0.802 ns ; rst       ; e1txfr:e1txfri|fflopx:ffvldi|odat[0]   ; clk2     ;
+; N/A           ; None        ; -0.904 ns ; rst       ; e1txfr:e1txfri|seroutrg[7]             ; clk2     ;
+; N/A           ; None        ; -0.904 ns ; rst       ; e1txfr:e1txfri|seroutrg[6]             ; clk2     ;
+; N/A           ; None        ; -0.904 ns ; rst       ; e1txfr:e1txfri|seroutrg[5]             ; clk2     ;
+; N/A           ; None        ; -0.904 ns ; rst       ; e1txfr:e1txfri|seroutrg[4]             ; clk2     ;
+; N/A           ; None        ; -0.904 ns ; rst       ; e1txfr:e1txfri|seroutrg[3]             ; clk2     ;
+; N/A           ; None        ; -0.904 ns ; rst       ; e1txfr:e1txfri|seroutrg[2]             ; clk2     ;
+; N/A           ; None        ; -0.904 ns ; rst       ; e1txfr:e1txfri|seroutrg[1]             ; clk2     ;
+; N/A           ; None        ; -0.904 ns ; rst       ; e1txfr:e1txfri|seroutrg[0]             ; clk2     ;
+; N/A           ; None        ; -1.081 ns ; rst       ; e1txfr:e1txfri|endi                    ; clk2     ;
+; N/A           ; None        ; -1.081 ns ; rst       ; e1txfr:e1txfri|count[0]                ; clk2     ;
+; N/A           ; None        ; -1.081 ns ; rst       ; e1txfr:e1txfri|count[1]                ; clk2     ;
+; N/A           ; None        ; -1.081 ns ; rst       ; e1txfr:e1txfri|count[2]                ; clk2     ;
+; N/A           ; None        ; -1.081 ns ; rst       ; e1txfr:e1txfri|count[7]                ; clk2     ;
+; N/A           ; None        ; -1.081 ns ; rst       ; e1txfr:e1txfri|count[3]                ; clk2     ;
+; N/A           ; None        ; -1.081 ns ; rst       ; e1txfr:e1txfri|count[6]                ; clk2     ;
+; N/A           ; None        ; -1.081 ns ; rst       ; e1txfr:e1txfri|count[4]                ; clk2     ;
+; N/A           ; None        ; -1.081 ns ; rst       ; e1txfr:e1txfri|count[5]                ; clk2     ;
+; N/A           ; None        ; -1.087 ns ; rst       ; e1rxfr:e1rxfri|fflopx:ffvld1i|odat[0]  ; clk19    ;
+; N/A           ; None        ; -1.470 ns ; rst       ; e1rxfr:e1rxfri|dovld1                  ; clk2     ;
+; N/A           ; None        ; -1.497 ns ; rst       ; e1rxfr:e1rxfri|state.10                ; clk2     ;
+; N/A           ; None        ; -1.904 ns ; rst       ; e1rxfr:e1rxfri|bitcnt[0]               ; clk2     ;
+; N/A           ; None        ; -1.904 ns ; rst       ; e1rxfr:e1rxfri|bitcnt[3]               ; clk2     ;
+; N/A           ; None        ; -1.904 ns ; rst       ; e1rxfr:e1rxfri|bitcnt[2]               ; clk2     ;
+; N/A           ; None        ; -1.904 ns ; rst       ; e1rxfr:e1rxfri|bitcnt[1]               ; clk2     ;
+; N/A           ; None        ; -1.904 ns ; rst       ; e1rxfr:e1rxfri|bitcnt[4]               ; clk2     ;
+; N/A           ; None        ; -1.904 ns ; rst       ; e1rxfr:e1rxfri|bitcnt[7]               ; clk2     ;
+; N/A           ; None        ; -1.904 ns ; rst       ; e1rxfr:e1rxfri|bitcnt[6]               ; clk2     ;
+; N/A           ; None        ; -1.904 ns ; rst       ; e1rxfr:e1rxfri|bitcnt[5]               ; clk2     ;
+; N/A           ; None        ; -1.954 ns ; rst       ; e1rxfr:e1rxfri|state.11                ; clk2     ;
+; N/A           ; None        ; -1.955 ns ; rst       ; e1rxfr:e1rxfri|state.01                ; clk2     ;
+; N/A           ; None        ; -2.385 ns ; rst       ; e1rxfr:e1rxfri|state.00                ; clk2     ;
+; N/A           ; None        ; -2.641 ns ; rst       ; e1rxfr:e1rxfri|nfaserr[0]              ; clk2     ;
+; N/A           ; None        ; -2.641 ns ; rst       ; e1rxfr:e1rxfri|nfaserr[1]              ; clk2     ;
+; N/A           ; None        ; -3.268 ns ; divld     ; e1txfr:e1txfri|fflopx:ffvldi|odat[0]   ; clk2     ;
+; N/A           ; None        ; -3.358 ns ; serin     ; e1rxfr:e1rxfri|fflopx:serinrgi|odat[0] ; clk2     ;
+; N/A           ; None        ; -3.534 ns ; datain[6] ; e1txfr:e1txfri|seroutrg[6]             ; clk2     ;
+; N/A           ; None        ; -3.545 ns ; datain[0] ; e1txfr:e1txfri|seroutrg[0]             ; clk2     ;
+; N/A           ; None        ; -3.622 ns ; datain[5] ; e1txfr:e1txfri|seroutrg[5]             ; clk2     ;
+; N/A           ; None        ; -3.684 ns ; datain[2] ; e1txfr:e1txfri|seroutrg[2]             ; clk2     ;
+; N/A           ; None        ; -3.698 ns ; datain[4] ; e1txfr:e1txfri|seroutrg[4]             ; clk2     ;
+; N/A           ; None        ; -3.746 ns ; datain[1] ; e1txfr:e1txfri|seroutrg[1]             ; clk2     ;
+; N/A           ; None        ; -3.821 ns ; los       ; e1rxfr:e1rxfri|aisflag                 ; clk2     ;
+; N/A           ; None        ; -3.896 ns ; datain[3] ; e1txfr:e1txfri|seroutrg[3]             ; clk2     ;
+; N/A           ; None        ; -4.207 ns ; los       ; e1rxfr:e1rxfri|dovld1                  ; clk2     ;
+; N/A           ; None        ; -4.234 ns ; los       ; e1rxfr:e1rxfri|state.10                ; clk2     ;
+; N/A           ; None        ; -4.760 ns ; los       ; e1rxfr:e1rxfri|bitcnt[0]               ; clk2     ;
+; N/A           ; None        ; -4.760 ns ; los       ; e1rxfr:e1rxfri|bitcnt[3]               ; clk2     ;
+; N/A           ; None        ; -4.760 ns ; los       ; e1rxfr:e1rxfri|bitcnt[2]               ; clk2     ;
+; N/A           ; None        ; -4.760 ns ; los       ; e1rxfr:e1rxfri|bitcnt[1]               ; clk2     ;
+; N/A           ; None        ; -4.760 ns ; los       ; e1rxfr:e1rxfri|bitcnt[4]               ; clk2     ;
+; N/A           ; None        ; -4.760 ns ; los       ; e1rxfr:e1rxfri|bitcnt[7]               ; clk2     ;
+; N/A           ; None        ; -4.760 ns ; los       ; e1rxfr:e1rxfri|bitcnt[6]               ; clk2     ;
+; N/A           ; None        ; -4.760 ns ; los       ; e1rxfr:e1rxfri|bitcnt[5]               ; clk2     ;
+; N/A           ; None        ; -4.810 ns ; los       ; e1rxfr:e1rxfri|state.11                ; clk2     ;
+; N/A           ; None        ; -4.811 ns ; los       ; e1rxfr:e1rxfri|state.01                ; clk2     ;
+; N/A           ; None        ; -5.241 ns ; los       ; e1rxfr:e1rxfri|state.00                ; clk2     ;
+; N/A           ; None        ; -5.378 ns ; los       ; e1rxfr:e1rxfri|nfaserr[0]              ; clk2     ;
+; N/A           ; None        ; -5.378 ns ; los       ; e1rxfr:e1rxfri|nfaserr[1]              ; clk2     ;
++---------------+-------------+-----------+-----------+----------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Web Edition
+    Info: Processing started: Fri Aug 10 10:25:19 2018
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off fr_syn_test -c e1frwrapped --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk2" is an undefined clock
+    Info: Assuming node "clk19" is an undefined clock
+Info: Clock "clk2" has Internal fmax of 327.76 MHz between source register "e1rxfr:e1rxfri|bitcnt[4]" and destination register "e1rxfr:e1rxfri|bitcnt[7]" (period= 3.051 ns)
+    Info: + Longest register to register delay is 2.837 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X45_Y15_N13; Fanout = 3; REG Node = 'e1rxfr:e1rxfri|bitcnt[4]'
+        Info: 2: + IC(0.341 ns) + CELL(0.410 ns) = 0.751 ns; Loc. = LCCOMB_X45_Y15_N2; Fanout = 4; COMB Node = 'e1rxfr:e1rxfri|Equal1~1'
+        Info: 3: + IC(0.266 ns) + CELL(0.150 ns) = 1.167 ns; Loc. = LCCOMB_X45_Y15_N22; Fanout = 4; COMB Node = 'e1rxfr:e1rxfri|Equal1~2'
+        Info: 4: + IC(0.269 ns) + CELL(0.393 ns) = 1.829 ns; Loc. = LCCOMB_X45_Y15_N4; Fanout = 2; COMB Node = 'e1rxfr:e1rxfri|bitcnt[0]~33'
+        Info: 5: + IC(0.000 ns) + CELL(0.071 ns) = 1.900 ns; Loc. = LCCOMB_X45_Y15_N6; Fanout = 2; COMB Node = 'e1rxfr:e1rxfri|bitcnt[1]~35'
+        Info: 6: + IC(0.000 ns) + CELL(0.071 ns) = 1.971 ns; Loc. = LCCOMB_X45_Y15_N8; Fanout = 2; COMB Node = 'e1rxfr:e1rxfri|bitcnt[2]~37'
+        Info: 7: + IC(0.000 ns) + CELL(0.071 ns) = 2.042 ns; Loc. = LCCOMB_X45_Y15_N10; Fanout = 2; COMB Node = 'e1rxfr:e1rxfri|bitcnt[3]~39'
+        Info: 8: + IC(0.000 ns) + CELL(0.071 ns) = 2.113 ns; Loc. = LCCOMB_X45_Y15_N12; Fanout = 2; COMB Node = 'e1rxfr:e1rxfri|bitcnt[4]~41'
+        Info: 9: + IC(0.000 ns) + CELL(0.159 ns) = 2.272 ns; Loc. = LCCOMB_X45_Y15_N14; Fanout = 2; COMB Node = 'e1rxfr:e1rxfri|bitcnt[5]~43'
+        Info: 10: + IC(0.000 ns) + CELL(0.071 ns) = 2.343 ns; Loc. = LCCOMB_X45_Y15_N16; Fanout = 1; COMB Node = 'e1rxfr:e1rxfri|bitcnt[6]~45'
+        Info: 11: + IC(0.000 ns) + CELL(0.410 ns) = 2.753 ns; Loc. = LCCOMB_X45_Y15_N18; Fanout = 1; COMB Node = 'e1rxfr:e1rxfri|bitcnt[7]~46'
+        Info: 12: + IC(0.000 ns) + CELL(0.084 ns) = 2.837 ns; Loc. = LCFF_X45_Y15_N19; Fanout = 2; REG Node = 'e1rxfr:e1rxfri|bitcnt[7]'
+        Info: Total cell delay = 1.961 ns ( 69.12 % )
+        Info: Total interconnect delay = 0.876 ns ( 30.88 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clk2" to destination register is 2.676 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'clk2'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 55; COMB Node = 'clk2~clkctrl'
+            Info: 3: + IC(1.022 ns) + CELL(0.537 ns) = 2.676 ns; Loc. = LCFF_X45_Y15_N19; Fanout = 2; REG Node = 'e1rxfr:e1rxfri|bitcnt[7]'
+            Info: Total cell delay = 1.536 ns ( 57.40 % )
+            Info: Total interconnect delay = 1.140 ns ( 42.60 % )
+        Info: - Longest clock path from clock "clk2" to source register is 2.676 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'clk2'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 55; COMB Node = 'clk2~clkctrl'
+            Info: 3: + IC(1.022 ns) + CELL(0.537 ns) = 2.676 ns; Loc. = LCFF_X45_Y15_N13; Fanout = 3; REG Node = 'e1rxfr:e1rxfri|bitcnt[4]'
+            Info: Total cell delay = 1.536 ns ( 57.40 % )
+            Info: Total interconnect delay = 1.140 ns ( 42.60 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Micro setup delay of destination is -0.036 ns
+Info: No valid register-to-register data paths exist for clock "clk19"
+Info: tsu for register "e1rxfr:e1rxfri|nfaserr[0]" (data pin = "los", clock pin = "clk2") is 5.608 ns
+    Info: + Longest pin to register delay is 8.321 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.852 ns) = 0.852 ns; Loc. = PIN_P17; Fanout = 3; PIN Node = 'los'
+        Info: 2: + IC(5.144 ns) + CELL(0.376 ns) = 6.372 ns; Loc. = LCCOMB_X44_Y15_N12; Fanout = 3; COMB Node = 'e1rxfr:e1rxfri|nfaserr[1]~12'
+        Info: 3: + IC(0.468 ns) + CELL(0.413 ns) = 7.253 ns; Loc. = LCCOMB_X45_Y15_N26; Fanout = 2; COMB Node = 'e1rxfr:e1rxfri|nfaserr[1]~15'
+        Info: 4: + IC(0.408 ns) + CELL(0.660 ns) = 8.321 ns; Loc. = LCFF_X46_Y15_N31; Fanout = 4; REG Node = 'e1rxfr:e1rxfri|nfaserr[0]'
+        Info: Total cell delay = 2.301 ns ( 27.65 % )
+        Info: Total interconnect delay = 6.020 ns ( 72.35 % )
+    Info: + Micro setup delay of destination is -0.036 ns
+    Info: - Shortest clock path from clock "clk2" to destination register is 2.677 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'clk2'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 55; COMB Node = 'clk2~clkctrl'
+        Info: 3: + IC(1.023 ns) + CELL(0.537 ns) = 2.677 ns; Loc. = LCFF_X46_Y15_N31; Fanout = 4; REG Node = 'e1rxfr:e1rxfri|nfaserr[0]'
+        Info: Total cell delay = 1.536 ns ( 57.38 % )
+        Info: Total interconnect delay = 1.141 ns ( 42.62 % )
+Info: tco from clock "clk2" to destination pin "dataout[7]" through register "e1rxfr:e1rxfri|aisflag" is 8.893 ns
+    Info: + Longest clock path from clock "clk2" to source register is 2.676 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'clk2'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 55; COMB Node = 'clk2~clkctrl'
+        Info: 3: + IC(1.022 ns) + CELL(0.537 ns) = 2.676 ns; Loc. = LCFF_X43_Y15_N9; Fanout = 13; REG Node = 'e1rxfr:e1rxfri|aisflag'
+        Info: Total cell delay = 1.536 ns ( 57.40 % )
+        Info: Total interconnect delay = 1.140 ns ( 42.60 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Longest register to pin delay is 5.967 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X43_Y15_N9; Fanout = 13; REG Node = 'e1rxfr:e1rxfri|aisflag'
+        Info: 2: + IC(0.798 ns) + CELL(0.245 ns) = 1.043 ns; Loc. = LCCOMB_X46_Y15_N10; Fanout = 1; COMB Node = 'e1rxfr:e1rxfri|dataout[7]~15'
+        Info: 3: + IC(2.126 ns) + CELL(2.798 ns) = 5.967 ns; Loc. = PIN_B18; Fanout = 0; PIN Node = 'dataout[7]'
+        Info: Total cell delay = 3.043 ns ( 51.00 % )
+        Info: Total interconnect delay = 2.924 ns ( 49.00 % )
+Info: th for register "e1txfr:e1txfri|seroutrg[7]" (data pin = "datain[7]", clock pin = "clk2") is -0.518 ns
+    Info: + Longest clock path from clock "clk2" to destination register is 2.668 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'clk2'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 55; COMB Node = 'clk2~clkctrl'
+        Info: 3: + IC(1.014 ns) + CELL(0.537 ns) = 2.668 ns; Loc. = LCFF_X37_Y15_N9; Fanout = 1; REG Node = 'e1txfr:e1txfri|seroutrg[7]'
+        Info: Total cell delay = 1.536 ns ( 57.57 % )
+        Info: Total interconnect delay = 1.132 ns ( 42.43 % )
+    Info: + Micro hold delay of destination is 0.266 ns
+    Info: - Shortest pin to register delay is 3.452 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_C13; Fanout = 1; PIN Node = 'datain[7]'
+        Info: 2: + IC(1.970 ns) + CELL(0.419 ns) = 3.368 ns; Loc. = LCCOMB_X37_Y15_N8; Fanout = 1; COMB Node = 'e1txfr:e1txfri|seroutrg~16'
+        Info: 3: + IC(0.000 ns) + CELL(0.084 ns) = 3.452 ns; Loc. = LCFF_X37_Y15_N9; Fanout = 1; REG Node = 'e1txfr:e1txfri|seroutrg[7]'
+        Info: Total cell delay = 1.482 ns ( 42.93 % )
+        Info: Total interconnect delay = 1.970 ns ( 57.07 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 164 megabytes
+    Info: Processing ended: Fri Aug 10 10:25:19 2018
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

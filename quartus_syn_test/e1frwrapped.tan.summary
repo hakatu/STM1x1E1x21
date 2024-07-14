@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.608 ns
+From           : los
+To             : e1rxfr:e1rxfri|nfaserr[1]
+From Clock     : --
+To Clock       : clk2
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 8.893 ns
+From           : e1rxfr:e1rxfri|aisflag
+To             : dataout[7]
+From Clock     : clk2
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -0.518 ns
+From           : datain[7]
+To             : e1txfr:e1txfri|seroutrg[7]
+From Clock     : --
+To Clock       : clk2
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk2'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 327.76 MHz ( period = 3.051 ns )
+From           : e1rxfr:e1rxfri|bitcnt[4]
+To             : e1rxfr:e1rxfri|bitcnt[7]
+From Clock     : clk2
+To Clock       : clk2
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

@@ -1,0 +1,145 @@
+|e1frwrapped
+clk2 => clk2~0.IN2
+clk19 => clk19~0.IN2
+rst => rst~0.IN2
+serin => serin~0.IN1
+serout <= e1txfr:e1txfri.serout
+dataout[0] <= e1rxfr:e1rxfri.dataout
+dataout[1] <= e1rxfr:e1rxfri.dataout
+dataout[2] <= e1rxfr:e1rxfri.dataout
+dataout[3] <= e1rxfr:e1rxfri.dataout
+dataout[4] <= e1rxfr:e1rxfri.dataout
+dataout[5] <= e1rxfr:e1rxfri.dataout
+dataout[6] <= e1rxfr:e1rxfri.dataout
+dataout[7] <= e1rxfr:e1rxfri.dataout
+dovld <= e1rxfr:e1rxfri.dovld
+ais <= e1rxfr:e1rxfri.aisdet
+datain[0] => datain[0]~7.IN1
+datain[1] => datain[1]~6.IN1
+datain[2] => datain[2]~5.IN1
+datain[3] => datain[3]~4.IN1
+datain[4] => datain[4]~3.IN1
+datain[5] => datain[5]~2.IN1
+datain[6] => datain[6]~1.IN1
+datain[7] => datain[7]~0.IN1
+divld => divld~0.IN1
+endi <= e1txfr:e1txfri.endi
+los => los~0.IN1
+
+
+|e1frwrapped|e1rxfr:e1rxfri
+clk2 => clk2~0.IN1
+clk19 => clk19~0.IN2
+rst => rst~0.IN3
+serin => serin~0.IN1
+dataout[0] <= dataout~7.DB_MAX_OUTPUT_PORT_TYPE
+dataout[1] <= dataout~6.DB_MAX_OUTPUT_PORT_TYPE
+dataout[2] <= dataout~5.DB_MAX_OUTPUT_PORT_TYPE
+dataout[3] <= dataout~4.DB_MAX_OUTPUT_PORT_TYPE
+dataout[4] <= dataout~3.DB_MAX_OUTPUT_PORT_TYPE
+dataout[5] <= dataout~2.DB_MAX_OUTPUT_PORT_TYPE
+dataout[6] <= dataout~1.DB_MAX_OUTPUT_PORT_TYPE
+dataout[7] <= dataout~0.DB_MAX_OUTPUT_PORT_TYPE
+dovld <= dovld2.DB_MAX_OUTPUT_PORT_TYPE
+aisdet <= aisflag.DB_MAX_OUTPUT_PORT_TYPE
+losdet => dovld1~2.OUTPUTSELECT
+losdet => nfaserr~11.OUTPUTSELECT
+losdet => nfaserr~10.OUTPUTSELECT
+losdet => bitcnt~23.OUTPUTSELECT
+losdet => bitcnt~22.OUTPUTSELECT
+losdet => bitcnt~21.OUTPUTSELECT
+losdet => bitcnt~20.OUTPUTSELECT
+losdet => bitcnt~19.OUTPUTSELECT
+losdet => bitcnt~18.OUTPUTSELECT
+losdet => bitcnt~17.OUTPUTSELECT
+losdet => bitcnt~16.OUTPUTSELECT
+losdet => faserr~10.OUTPUTSELECT
+losdet => faserr~9.OUTPUTSELECT
+losdet => fr_odd~2.OUTPUTSELECT
+losdet => aisflag~1.OUTPUTSELECT
+losdet => state~17.OUTPUTSELECT
+losdet => state~16.OUTPUTSELECT
+losdet => state~15.OUTPUTSELECT
+losdet => state~14.OUTPUTSELECT
+
+
+|e1frwrapped|e1rxfr:e1rxfri|fflopx:serinrgi
+clk => odat[7]~reg0.CLK
+clk => odat[6]~reg0.CLK
+clk => odat[5]~reg0.CLK
+clk => odat[4]~reg0.CLK
+clk => odat[3]~reg0.CLK
+clk => odat[2]~reg0.CLK
+clk => odat[1]~reg0.CLK
+clk => odat[0]~reg0.CLK
+rst => odat~7.OUTPUTSELECT
+rst => odat~6.OUTPUTSELECT
+rst => odat~5.OUTPUTSELECT
+rst => odat~4.OUTPUTSELECT
+rst => odat~3.OUTPUTSELECT
+rst => odat~2.OUTPUTSELECT
+rst => odat~1.OUTPUTSELECT
+rst => odat~0.OUTPUTSELECT
+idat[0] => odat~7.DATAA
+idat[1] => odat~6.DATAA
+idat[2] => odat~5.DATAA
+idat[3] => odat~4.DATAA
+idat[4] => odat~3.DATAA
+idat[5] => odat~2.DATAA
+idat[6] => odat~1.DATAA
+idat[7] => odat~0.DATAA
+odat[0] <= odat[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+odat[1] <= odat[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+odat[2] <= odat[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+odat[3] <= odat[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+odat[4] <= odat[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+odat[5] <= odat[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+odat[6] <= odat[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+odat[7] <= odat[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|e1frwrapped|e1rxfr:e1rxfri|fflopx:ffvld1i
+clk => odat[0]~reg0.CLK
+rst => odat~0.OUTPUTSELECT
+idat[0] => odat~0.DATAA
+odat[0] <= odat[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|e1frwrapped|e1rxfr:e1rxfri|fflopx:ffvld2i
+clk => odat[0]~reg0.CLK
+rst => odat~0.OUTPUTSELECT
+idat[0] => odat~0.DATAA
+odat[0] <= odat[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|e1frwrapped|e1txfr:e1txfri
+clk2 => clk2~0.IN2
+clk19 => ~NO_FANOUT~
+rst => rst~0.IN2
+datain[0] => seroutrg~7.DATAB
+datain[1] => seroutrg~6.DATAB
+datain[2] => seroutrg~5.DATAB
+datain[3] => seroutrg~4.DATAB
+datain[4] => seroutrg~3.DATAB
+datain[5] => seroutrg~2.DATAB
+datain[6] => seroutrg~1.DATAB
+datain[7] => seroutrg~0.DATAB
+divld => divld~0.IN1
+endi <= endi~reg0.DB_MAX_OUTPUT_PORT_TYPE
+serout <= seroutrg[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|e1frwrapped|e1txfr:e1txfri|fflopx:ffvldi
+clk => odat[0]~reg0.CLK
+rst => odat~0.OUTPUTSELECT
+idat[0] => odat~0.DATAA
+odat[0] <= odat[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|e1frwrapped|e1txfr:e1txfri|fflopx:ffvld2i
+clk => odat[0]~reg0.CLK
+rst => odat~0.OUTPUTSELECT
+idat[0] => odat~0.DATAA
+odat[0] <= odat[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

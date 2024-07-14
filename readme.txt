@@ -1,0 +1,1 @@
+Use fflopsx ( synchronous reset) for macro

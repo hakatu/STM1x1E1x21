@@ -1,0 +1,255 @@
+Version 9.0 Build 132 02/25/2009 SJ Web Edition
+11
+1000
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+e1frwrapped
+# storage
+db|e1frwrapped.(0).cnf
+db|e1frwrapped.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+e1frwrapped.v
+77954f4efc3695d8f3758cf6cc4f13da
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+WID
+8
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+e1rxfr
+# storage
+db|e1frwrapped.(1).cnf
+db|e1frwrapped.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+e1rxfr.v
+efa8de27e95ec8aecf389fd75beff98
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+WID
+8
+PARAMETER_SIGNED_DEC
+DEF
+FAS_PAT
+0011011
+PARAMETER_UNSIGNED_BIN
+DEF
+BITPERFRAME
+11111111
+PARAMETER_UNSIGNED_BIN
+DEF
+BITPER2FRAME
+111111111
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+e1rxfr:e1rxfri
+}
+# macro_sequence
+
+# end
+# entity
+fflopx
+# storage
+db|e1frwrapped.(2).cnf
+db|e1frwrapped.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+..|lib|atvn|lib_v|macro|fflopx.v
+f4888c35bdd3c1a942bcf1293499766b
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+WIDTH
+8
+PARAMETER_SIGNED_DEC
+USR
+RESET_VALUE
+00000000
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+e1rxfr:e1rxfri|fflopx:serinrgi
+}
+# macro_sequence
+
+# end
+# entity
+fflopx
+# storage
+db|e1frwrapped.(3).cnf
+db|e1frwrapped.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+..|lib|atvn|lib_v|macro|fflopx.v
+f4888c35bdd3c1a942bcf1293499766b
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+WIDTH
+1
+PARAMETER_SIGNED_DEC
+USR
+RESET_VALUE
+0
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+e1rxfr:e1rxfri|fflopx:ffvld1i
+e1rxfr:e1rxfri|fflopx:ffvld2i
+e1txfr:e1txfri|fflopx:ffvldi
+e1txfr:e1txfri|fflopx:ffvld2i
+}
+# macro_sequence
+
+# end
+# entity
+e1txfr
+# storage
+db|e1frwrapped.(4).cnf
+db|e1frwrapped.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+e1txfr.v
+7553343dc24a53d7bcfd6c279d1584f6
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+WID
+8
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+e1txfr:e1txfri
+}
+# macro_sequence
+
+# end
+# complete
+
